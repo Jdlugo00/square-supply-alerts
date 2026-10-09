@@ -1,0 +1,22 @@
+{
+  "name": "square-supply-alerts",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Cloudflare Worker that turns Square stock counts into a Telegram shopping list",
+  "type": "module",
+  "scripts": {
+    "deploy:sandbox": "wrangler deploy --env sandbox",
+    "deploy:production": "wrangler deploy --env production",
+    "tail:sandbox": "wrangler tail --env sandbox --format pretty",
+    "tail:production": "wrangler tail --env production --format pretty"
+  },
+  "author": "Justin Lugo",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^4.141.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "workerd@1.20260925.1": true
+  }
+}

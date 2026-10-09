@@ -1,0 +1,46 @@
+{
+  "name": "supply-alerts",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-01",
+  "account_id": "YOUR_CLOUDFLARE_ACCOUNT_ID",
+  "workers_dev": true,
+  "observability": { "enabled": true },
+  "env": {
+    "sandbox": {
+      "name": "supply-alerts-sandbox",
+      "durable_objects": { "bindings": [ { "name": "COUNT_RUNNER", "class_name": "CountRunner" } ] },
+      "migrations": [ { "tag": "v1", "new_sqlite_classes": ["CountRunner"] } ],
+      "triggers": { "crons": ["0 14 * * *"] },
+      "vars": {
+        "SQUARE_BASE": "https://connect.squareupsandbox.com",
+        "LOCATION_ID": "YOUR_SANDBOX_LOCATION_ID",
+        "WEBHOOK_URL": "https://supply-alerts-sandbox.YOUR_SUBDOMAIN.workers.dev/square-webhook",
+        "RUN_DELAY_SECONDS": 20,
+        "GROUPS": [
+          { "key": "weekly", "label": "Weekly supplies", "category": "Supplies - Weekly",
+            "countCompleteId": "SANDBOX_WEEKLY_COUNT_COMPLETE_VARIATION_ID", "overdueDays": 8, "staleDays": 14 },
+          { "key": "produce", "label": "Produce", "category": "Supplies - Produce",
+            "countCompleteId": "SANDBOX_PRODUCE_COUNT_COMPLETE_VARIATION_ID", "overdueDays": 4, "staleDays": 6 }
+        ]
+      }
+    },
+    "production": {
+      "name": "supply-alerts",
+      "durable_objects": { "bindings": [ { "name": "COUNT_RUNNER", "class_name": "CountRunner" } ] },
+      "migrations": [ { "tag": "v1", "new_sqlite_classes": ["CountRunner"] } ],
+      "triggers": { "crons": ["0 14 * * *"] },
+      "vars": {
+        "SQUARE_BASE": "https://connect.squareup.com",
+        "LOCATION_ID": "YOUR_PRODUCTION_LOCATION_ID",
+        "WEBHOOK_URL": "https://supply-alerts.YOUR_SUBDOMAIN.workers.dev/square-webhook",
+        "RUN_DELAY_SECONDS": 20,
+        "GROUPS": [
+          { "key": "weekly", "label": "Weekly supplies", "category": "Supplies - Weekly",
+            "countCompleteId": "PROD_WEEKLY_COUNT_COMPLETE_VARIATION_ID", "overdueDays": 8, "staleDays": 14 },
+          { "key": "produce", "label": "Produce", "category": "Supplies - Produce",
+            "countCompleteId": "PROD_PRODUCE_COUNT_COMPLETE_VARIATION_ID", "overdueDays": 4, "staleDays": 6 }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+node_modules/
+.wrangler/
+.dev.vars
+.env
+wrangler.jsonc
+*.bak
+*-ids.txt
+*catalog*.json
+.DS_Store
