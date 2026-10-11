@@ -6,7 +6,7 @@ Built for a small Florida cafe and bar that serves espresso drinks, pressed juic
 
 ## The problem
 
-Staff were getting sent to purchase inventory items mid-shift because supplies ran out, and produce was spoiling on the shelf. The manager had tried attempted to associate inventory items to items on the menu so that inventory would react to sales being made, but it drifted badly because sandwiches use fractions of an ingredient (a leaf of lettuce, part of a tomato). Square has no good way to deduct "a quarter of a tomato."
+Staff were getting sent to purchase inventory items mid-shift because supplies ran out, and produce was spoiling on the shelf. The manager had attempted to associate inventory items to items on the menu so that inventory would react to sales being made, but it drifted badly because sandwiches use fractions of an ingredient (a leaf of lettuce, part of a tomato). Square has no good way to deduct "a quarter of a tomato."
 
 Counting what is actually on the shelf works better than predicting it from sales. This project makes counting fast and turns each count into an order list automatically.
 
