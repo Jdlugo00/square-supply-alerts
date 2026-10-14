@@ -103,7 +103,7 @@ async function loadGroupItems(env, group) {
       const variation = item.item_data?.variations?.[0];
       if (!variation || variation.id === group.countCompleteId) continue;
 
-      const name = (item.item_data.name || "").replace(/^SUPPLY\s*-\s*/i, "");
+      const name = (item.item_data.name || "").replace(/^SUPPLY\s*[WP]?\s*-\s*/i, "");
       const attrs = item.custom_attribute_values || {};
       const par = num(attrs.par?.number_value);
       const packSize = num(attrs.pack_size?.number_value) || 1;
